@@ -9,13 +9,13 @@ const Chart = dynamic(() => import('react-apexcharts'), {
 })
 
 
-const option = {
+const options = {
     chart: {
         toolbar: {
-            show: false,
+           show:false
         },
         zoom: {
-           
+           enable:false
         },
         foreColor: theme.colors.gray[500],
     },
@@ -38,12 +38,12 @@ const option = {
         },
         categories: [
             '2021-08-20T00:00:00.000Z',
-            '2021-08-19:00:00:00.000Z',
-            '2021-08-18:00:00:00.000Z',
-            '2021-08-17:00:00:00.000Z',
+            '2021-08-19T00:00:00.000Z',
+            '2021-08-18T00:00:00.000Z',
+            '2021-08-17T00:00:00.000Z',
             '2021-08-16T00:00:00.000Z',
-            '2021-08-15:00:00:00.000Z',
-            '2021-08-14:00:00:00.000Z',
+            '2021-08-15T00:00:00.000Z',
+            '2021-08-14T00:00:00.000Z',
         ],
     },
     fill: {
@@ -59,7 +59,7 @@ const option = {
 };
 
 const series = [
-    { name: 'series1', data: [12, 120, 10, 28, 58, 15, 109] }
+    { name: 'series1', data: [12, 30, 150, 18, 58, 80, 109] }
 ];
 
 export default function Dashboard() {
@@ -71,14 +71,14 @@ export default function Dashboard() {
                 <Sidebar />
                 <SimpleGrid flex='1' gap='4' minChildWidth='320px' >
                     <Box
-                        p='8'
+                        p={['6','8']}
                         bg='gray.800'
                         borderRadius={8}
                         pb='4'
                         
                     >
                         <Text fontSize='lg' mb='4'> Inscritos da semana </Text>
-                        <Chart options={option} series={series} type='area' height={160} />
+                        <Chart options={options} series={series} type='area' height={160} />
                     </Box>
                     <Box
                         p='8'
@@ -87,7 +87,7 @@ export default function Dashboard() {
                          pb='4'
                     >
                         <Text fontSize='lg' mb='4'>Taxa de abertura</Text>
-                        <Chart options={option} series={series} type='area' height={160} />
+                        <Chart options={options} series={series} type='area' height={160} />
                     </Box>
                 </SimpleGrid>
             </Flex>
